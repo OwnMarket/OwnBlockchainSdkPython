@@ -11,7 +11,7 @@ $ cd own_blockchain_sdk
 
 Run tests:
 ```bash
-pytest
+$ pytest
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ $ pip install own_blockchain_sdk
 or 
 
 ``` bash
-python -m pip install own_blockchain_sdk
+$ python -m pip install own_blockchain_sdk
 ```
 
 Use the package in Python code
