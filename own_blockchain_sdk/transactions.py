@@ -1,5 +1,5 @@
 import simplejson
-import crypto
+from own_blockchain_sdk.crypto import derive_hash, sign_message, encode64
 
 class Tx:
     def __init__(self, sender_address, nonce, action_fee=0, expiration_time=0):
@@ -56,7 +56,7 @@ class Tx:
         
     def add_create_asset_action(self):
         self.add_action('CreateAsset', {})
-        return crypto.derive_hash(self.sender_address, self.nonce, len(self.actions))
+        return derive_hash(self.sender_address, self.nonce, len(self.actions))
         
     def add_set_asset_code_action(self, asset_hash, asset_code):
         self.add_action('SetAssetCode', {
@@ -72,7 +72,7 @@ class Tx:
             
     def add_create_account_action(self):
         self.add_action('CreateAccount', {})
-        return crypto.derive_hash(self.sender_address, self.nonce, len(self.actions))
+        return derive_hash(self.sender_address, self.nonce, len(self.actions))
     
     def add_set_account_controller_action(self, account_hash, controller_address):
         self.add_action('SetAccountController', {
@@ -152,8 +152,8 @@ class Tx:
         
     def sign(self, network_code, private_key):
         json = self.to_json()
-        signature = crypto.sign_message(network_code, private_key, json)
+        signature = sign_message(network_code, private_key, json)
         return {
-            'tx': crypto.encode64(json.encode()),
+            'tx': encode64(json.encode()),
             'signature': signature            
         }
