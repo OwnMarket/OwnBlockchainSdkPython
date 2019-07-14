@@ -19,13 +19,13 @@ $ pytest
 Own Blockchain SDK can be used as a pip package.
 
 ```bash
-$ pip install own_blockchain_sdk
+$ pip install own-blockchain-sdk
 ```
 
 or 
 
 ``` bash
-$ python -m pip install own_blockchain_sdk
+$ python -m pip install own-blockchain-sdk
 ```
 
 Use the package in Python code
