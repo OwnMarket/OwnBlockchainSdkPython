@@ -3,7 +3,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='own-blockchain-sdk',
-    version='1.0',
+    version='1.0.1',
     author="Marian Gheorghe",
     author_email="marian.gheorghe@weown.com",
     description="Own Blockchain SDK for Python",
