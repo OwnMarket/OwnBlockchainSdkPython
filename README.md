@@ -42,9 +42,9 @@ tx = Tx(wallet.address, 1, 0.01)
 tx.add_transfer_chx_action('CHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 100) # Transfer 100 CHX to CHxxx... address.
 
 # Look at the raw transaction in JSON format
-print (tx.to_json())
+print(tx.to_json())
 
 # Sign the transaction for submission to node API on TestNet
 network_code = 'OWN_PUBLIC_BLOCKCHAIN_TESTNET'
-print (tx.sign(network_code, wallet.private_key))
+print(tx.sign(network_code, wallet.private_key))
 ```
