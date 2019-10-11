@@ -49,6 +49,21 @@ def blockchain_address(public_key):
     checksum = sha256(sha256(public_key_hash_with_prefix))[:4]
     return encode58(public_key_hash_with_prefix + checksum)
 
+def is_valid_blockchain_address(address):
+    addressPrefix = bytes(bytearray.fromhex('065A'))    
+    if address == None or address == '' or not (address.startswith('CH')):
+        return False
+    
+    address_bytes = decode58(address)
+    if len(address_bytes) != 26 or address_bytes[:2] != addressPrefix:
+        return False
+    
+    public_key_hash_with_prefix = address_bytes[:22]
+    checksum = address_bytes[22:]
+    calculatedChecksum = sha256(sha256(public_key_hash_with_prefix))[:4]
+
+    return checksum == calculatedChecksum
+
 ####################################################################################################
 ## Signing
 ####################################################################################################

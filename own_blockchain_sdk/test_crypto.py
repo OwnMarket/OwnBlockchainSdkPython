@@ -30,6 +30,20 @@ def test_derive_hash():
     expected = '5kHcMrwXUptjmbdR8XBW2yY3FkSFwnMdrVr22Yg39pTR'
     actual = own_blockchain_sdk.crypto.derive_hash(address, nonce, tx_action_number)
     assert expected == actual
+    
+def test_is_valid_blockchain_address():
+    inlineData = [
+        ("CHPvS1Hxs4oLcrbgKWYYmubSBjurjUdvjg8", True),
+        ("XRPvS1Hxs4oLcrbgKWYYmubSBjurjUdvjg8", False),
+        ("CHPvS1Hxs4oLcgKccYmubSBjurjUdvjg8", False),
+        ("CHPvS1Hxs4oLcrbgKccYmubSBjurjUdvjg8", False)]
+
+    for data in inlineData:
+        address = data[0]
+        expected = data[1]
+
+        actual = own_blockchain_sdk.crypto.is_valid_blockchain_address(address)
+        assert expected == actual
 
 def test_generate_wallet():
     private_key, address = own_blockchain_sdk.crypto.generate_wallet()

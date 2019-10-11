@@ -11,7 +11,7 @@ $ cd own_blockchain_sdk
 
 Run tests:
 ```bash
-$ pytest
+$ pytest -v
 ```
 
 ## Usage
