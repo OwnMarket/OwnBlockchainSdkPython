@@ -37,8 +37,8 @@ from own_blockchain_sdk import Wallet, Tx
 wallet = Wallet()
 print('PK =', wallet.private_key, ', Address = ', wallet.address)
 
-# Compose a transaction with nonce = 1 and action fee 0.01
-tx = Tx(wallet.address, 1, 0.01)
+# Compose a transaction with nonce = 1 and action fee 0.1
+tx = Tx(wallet.address, 1, 0.1)
 tx.add_transfer_chx_action('CHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 100) # Transfer 100 CHX to CHxxx... address.
 
 # Look at the raw transaction in JSON format
